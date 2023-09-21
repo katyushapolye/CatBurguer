@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour
     private float maxSpeed;
 
 
-
+    [SerializeField]
+    private Animator animator;
     private Rigidbody2D rigidbody2D;
 
 
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
 
         this.rigidbody2D.velocity = speedAxis;
+        animator.SetInteger("Movement",(int) this.rigidbody2D.velocity.x);
 
 
     }
