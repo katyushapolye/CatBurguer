@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField]
-    [Range(0.0f,10.0f)]
+    [Range(0.0f, 10.0f)]
     private float jumpHeight;
 
     [SerializeField]
@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
 
         rigidbody2D = this.GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -49,8 +50,9 @@ public class PlayerController : MonoBehaviour
         handleJump();
 
 
+
         this.rigidbody2D.velocity = speedAxis;
-        animator.SetInteger("Movement",(int) this.rigidbody2D.velocity.x);
+        animator.SetInteger("Movement", (int)this.rigidbody2D.velocity.x);
 
 
     }
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour
         //float smoothValue = Mathf.SmoothStep(-maxSpeed, maxSpeed, xInput);
 
 
-        speedAxis.x = xInput*movementSensitivity;
+        speedAxis.x = xInput * movementSensitivity;
         speedAxis.y = rigidbody2D.velocity.y;
 
         this.rigidbody2D.velocity = speedAxis;
@@ -82,8 +84,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Jump");
             speedAxis.y = jumpHeight;
             return;
-               
-        } 
+
+        }
     }
 
 
