@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 
+
         rigidbody2D = this.GetComponent<Rigidbody2D>();
 
     }
@@ -63,6 +64,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public Vector3 getSpeed()
+    {
+        return this.rigidbody2D.velocity;
+    }
+
 
     void handleMovement()
     {
@@ -71,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
         //raw input for us to do the smoothing later
         xInput = Input.GetAxisRaw("Horizontal");
+
 
         speedAxis.x = xInput * movementSensitivity;
         speedAxis.y = rigidbody2D.velocity.y;
@@ -90,9 +97,10 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Jump");
                 speedAxis.y = jumpHeight;
 
-                
+
 
                 animator.SetTrigger("Jump");
+
 
                 return;
             }
