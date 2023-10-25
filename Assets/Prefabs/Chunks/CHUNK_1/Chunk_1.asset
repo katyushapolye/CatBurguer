@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Chunk_1
   m_EditorClassIdentifier: 
   chunkObject: {fileID: 6647512142839061448, guid: 7c702ace69f89cd499caa30478f09cf8, type: 3}
-  width: 4
+  width: 8
+  enemyPosition: {x: 0, y: 3, z: 0}

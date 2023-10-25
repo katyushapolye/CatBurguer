@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3828633ea95627b4fa402226b9ef45e8, type: 3}
   m_Name: Chunk_2
   m_EditorClassIdentifier: 
-  chunkObject: {fileID: 0}
-  width: 0
+  chunkObject: {fileID: 6791735706070509668, guid: f7205173271680540abc8704289dcf21, type: 3}
+  width: 10
+  enemyPosition: {x: 2, y: 3, z: 0}
