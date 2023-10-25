@@ -14,7 +14,13 @@ public class ParalaxScript : MonoBehaviour
     private float frontOffset = 0;
     private float midOffset = 0;
     [SerializeField]
-    private PlayerController player;
+    private Transform target;
+
+    //Little trick
+
+    float oldPos = 0;
+    float newPos = 0;
+
 
 
 
@@ -22,6 +28,7 @@ public class ParalaxScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        oldPos = target.position.x;
 
         midLayer = midLayerPanel.GetComponent<MeshRenderer>().material;
         frontLayer = frontLayerPanel.GetComponent<MeshRenderer>().material;
@@ -29,9 +36,12 @@ public class ParalaxScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        float pSpeed = player.getSpeed().x;
+        newPos = target.transform.position.x;
+
+        float pSpeed = (newPos - oldPos) / Time.deltaTime; //hehe
+
         frontOffset += pSpeed * Time.deltaTime * 0.01f;
 
         midOffset += (pSpeed * Time.deltaTime * 0.01f) / 2;
@@ -40,6 +50,9 @@ public class ParalaxScript : MonoBehaviour
 
 
         midLayer.SetTextureOffset("_MainTex", new Vector3(midOffset, 0));
+
+
+        oldPos = newPos;
 
 
 

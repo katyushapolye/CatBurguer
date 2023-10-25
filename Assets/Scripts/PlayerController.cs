@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private float jumpCooldown;
 
+    private GameDirector gameDirector;
+
 
 
     private Vector3 speedAxis = Vector3.zero;
@@ -42,6 +44,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 
+
+        gameDirector = FindFirstObjectByType<GameDirector>();
 
         rigidbody2D = this.GetComponent<Rigidbody2D>();
 
@@ -107,6 +111,22 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+    public void bumpUp()
+    {
+        speedAxis.y = 10;
+        this.rigidbody2D.velocity = speedAxis;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Bullet")
+        {
+            Debug.Log("Got killed by Bullet");
+            gameDirector.murderPlayer();
+            
+        }
+    }
+
 
 
 
