@@ -13,7 +13,17 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        pTransform = FindObjectOfType<PlayerController>().gameObject.transform;
+        try
+        {
+
+
+            pTransform = FindObjectOfType<PlayerController>().gameObject.transform;
+        }
+        catch (System.Exception)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         if(pTransform == null)
         {
             Destroy(this.gameObject);
@@ -32,6 +42,11 @@ public class Bullet : MonoBehaviour
         this.transform.position = pos;
 
 
+        if (pTransform == null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         if(Vector3.Distance(pTransform.position,this.transform.position) > 30)
         {
             //suicide

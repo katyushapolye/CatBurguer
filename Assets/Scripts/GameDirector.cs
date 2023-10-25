@@ -117,30 +117,24 @@ public class GameDirector : MonoBehaviour
 
         //Debug.Log("Active Chunks: " + ACTIVE_CHUNKS.Count);
 
-        foreach(var obj in ACTIVE_CHUNKS)
-        {                               //Offset
-            if(obj.transform.position.x + 10 <= worldPos.x - leftLimit)
-            {
-                ACTIVE_CHUNKS.Remove(obj);
-                Destroy(obj.gameObject);
-
-                
-            }
-
-
-        }
-
-        foreach (var obj in ENEMY_POOL)
-        {                               //Offset
+        for (int i = ACTIVE_CHUNKS.Count - 1; i >= 0; i--)
+        {
+            var obj = ACTIVE_CHUNKS[i];
             if (obj.transform.position.x + 10 <= worldPos.x - leftLimit)
             {
-                ENEMY_POOL.Remove(obj);
+                ACTIVE_CHUNKS.RemoveAt(i);
                 Destroy(obj.gameObject);
-
-
             }
+        }
 
-
+        for (int i = ENEMY_POOL.Count - 1; i >= 0; i--)
+        {
+            var obj = ENEMY_POOL[i];
+            if (obj.transform.position.x + 10 <= worldPos.x - leftLimit)
+            {
+                ENEMY_POOL.RemoveAt(i);
+                Destroy(obj.gameObject);
+            }
         }
 
         //Generate new objects if they dont exist 
@@ -229,7 +223,7 @@ public class GameDirector : MonoBehaviour
         PLAYER.transform.position = new Vector3(-999, 999, 999); //hides the player;
         PLAYER.SetActive(false);
         
-        //Debug.Log("Game ended, final score: " + score);
+        Debug.Log("Game ended, final score: " + score);
     }
 
     public void murderPlayer()
