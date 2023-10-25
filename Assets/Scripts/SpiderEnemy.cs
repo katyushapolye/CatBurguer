@@ -39,9 +39,9 @@ public class SpiderEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pController = Player.GetComponent<PlayerController>();
+        pController = FindFirstObjectByType<PlayerController>();
 
-        enemyNet.transform.localScale = new Vector3(3, movementRange * 4, 1);
+        enemyNet.transform.localScale = new Vector3(3, movementRange * 8, 1);
         gameDirector = FindFirstObjectByType<GameDirector>();
         
 
