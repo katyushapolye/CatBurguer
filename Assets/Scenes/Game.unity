@@ -1192,6 +1192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1218189352}
   - component: {fileID: 1218189353}
+  - component: {fileID: 1218189354}
   m_Layer: 3
   m_Name: World
   m_TagString: Ground
@@ -1242,6 +1243,59 @@ MonoBehaviour:
   distanceText: {fileID: 1974531556}
   scoreTextText: {fileID: 1475314227}
   GameOverMenu: {fileID: 51029014}
+--- !u!114 &1218189354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218189351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc47b1faeff57940be465051e8a43f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audios:
+  - Name: BGM
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 1
+  - Name: 
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 0
+  - Name: 
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 0
+  - Name: 
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 0
+  - Name: 
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 0
+  - Name: 
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 0
+  - Name: 
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 0
+  - Name: 
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 0
+  - Name: 
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 0
+  - Name: 
+    AudioClip: {fileID: 0}
+    Source: {fileID: 0}
+    loop: 0
 --- !u!1 &1319171102
 GameObject:
   m_ObjectHideFlags: 0

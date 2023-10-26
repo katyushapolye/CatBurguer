@@ -10,14 +10,13 @@ public class Menu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<AudioHandler>().Play("bgm");
+
         
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public void StartGame()
     {

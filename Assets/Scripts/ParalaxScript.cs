@@ -42,9 +42,9 @@ public class ParalaxScript : MonoBehaviour
 
         float pSpeed = (newPos - oldPos) / Time.deltaTime; //hehe
 
-        frontOffset += pSpeed * Time.deltaTime * 0.01f;
+        frontOffset += pSpeed * Time.deltaTime * 0.05f;
 
-        midOffset += (pSpeed * Time.deltaTime * 0.01f) / 2;
+        midOffset += (pSpeed * Time.deltaTime * 0.05f) / 2;
 
         frontLayer.SetTextureOffset("_MainTex", new Vector3(frontOffset, 0));
 
