@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
 
     private float jumpCooldown;
+    private bool grounded;
 
     private GameDirector gameDirector;
 
@@ -93,12 +94,13 @@ public class PlayerController : MonoBehaviour
 
     void handleJump()
     {
+        //Add ground check and double jmp
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (jumpCooldown > 0.5)
+            if (jumpCooldown > 0.5 && grounded == true)
             {
                 jumpCooldown = 0;
-                Debug.Log("Jump");
+                //Debug.Log("Jump");
                 speedAxis.y = jumpHeight;
 
 
@@ -125,6 +127,27 @@ public class PlayerController : MonoBehaviour
             gameDirector.murderPlayer();
             
         }
+        if(collision.tag == "Ground")
+        {
+            Debug.Log("Grounded");
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = true;
+        }
+
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = false;
+        }
+
     }
 
 
