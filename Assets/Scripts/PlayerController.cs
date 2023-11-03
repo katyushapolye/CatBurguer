@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private float jumpCooldown;
     private bool grounded;
+    private int remainingJumps = 1;
 
     private GameDirector gameDirector;
 
@@ -97,19 +99,20 @@ public class PlayerController : MonoBehaviour
         //Add ground check and double jmp
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (jumpCooldown > 0.5 && grounded == true)
+            if ((grounded == true || remainingJumps > 0))
             {
                 jumpCooldown = 0;
                 //Debug.Log("Jump");
                 speedAxis.y = jumpHeight;
-
-
-
                 animator.SetTrigger("Jump");
 
-
+                if (!grounded)
+                {
+                    remainingJumps--;
+                }
                 return;
             }
+
 
         }
     }
@@ -138,6 +141,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
+            remainingJumps = 1;
         }
 
     }
