@@ -41,7 +41,7 @@ public class SpiderEnemy : MonoBehaviour
     {
         pController = FindFirstObjectByType<PlayerController>();
 
-        enemyNet.transform.localScale = new Vector3(3, movementRange * 8, 1);
+        //enemyNet.transform.localScale = new Vector3(3, movementRange * 8, 1);
         gameDirector = FindFirstObjectByType<GameDirector>();
         
 
@@ -115,7 +115,7 @@ public class SpiderEnemy : MonoBehaviour
             
 
             bulletClock = 0;
-            GameObject g = Instantiate(bulletPrefab, pos, Quaternion.identity);
+            GameObject g = Instantiate(bulletPrefab, animator.gameObject.transform.position, Quaternion.identity);
            
 
 

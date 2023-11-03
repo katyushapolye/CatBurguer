@@ -167,6 +167,11 @@ public class GameDirector : MonoBehaviour
         for (int i = ENEMY_POOL.Count - 1; i >= 0; i--)
         {
             var obj = ENEMY_POOL[i];
+            if(obj == null)
+            {
+                continue;
+             
+            }
             if (obj.transform.position.x + 10 <= worldPos.x - leftLimit)
             {
                 ENEMY_POOL.RemoveAt(i);
@@ -202,7 +207,7 @@ public class GameDirector : MonoBehaviour
             //Roullet for enemy
 
             int enemyRnd = UnityEngine.Random.Range(0, 101);
-            if(enemyRnd < 20 + (dificultyFactor/100))
+            if(enemyRnd < 30 + (dificultyFactor/100))
             {
                 Vector3 ePos = CHUNKS[rand].enemyPosition;
                 ePos.x += ACTIVE_CHUNKS[ACTIVE_CHUNKS.Count - 1].transform.position.x;
