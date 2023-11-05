@@ -25,6 +25,7 @@ public class AudioHandler : MonoBehaviour
             Audio.Source.clip = Audio.AudioClip;
             Audio.Source.name = Audio.Name;
             Audio.Source.loop = Audio.loop;
+            Audio.Source.volume = Audio.Volume;
 
 
         }

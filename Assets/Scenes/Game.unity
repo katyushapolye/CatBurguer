@@ -1259,42 +1259,52 @@ MonoBehaviour:
   Audios:
   - Name: BGM
     AudioClip: {fileID: 0}
+    Volume: 1
     Source: {fileID: 0}
     loop: 1
   - Name: jump
     AudioClip: {fileID: 8300000, guid: 8bfad5166a30953fea21ac132d34dc01, type: 3}
+    Volume: 1
     Source: {fileID: 0}
     loop: 0
   - Name: stomp
     AudioClip: {fileID: 8300000, guid: 03733641910b8e95ebc071ccf525542b, type: 3}
+    Volume: 1
     Source: {fileID: 0}
     loop: 0
   - Name: gameOver
     AudioClip: {fileID: 8300000, guid: d5324da76e379568785e242884b267fc, type: 3}
+    Volume: 1
     Source: {fileID: 0}
     loop: 0
   - Name: run
     AudioClip: {fileID: 8300000, guid: a48083e2ee0a8f9f8bd4d277c79b1c9e, type: 3}
+    Volume: 0
+    Source: {fileID: 0}
+    loop: 0
+  - Name: bgm
+    AudioClip: {fileID: 8300000, guid: 1c274ef4ee530bb499759de5092979df, type: 3}
+    Volume: 0.05
+    Source: {fileID: 0}
+    loop: 1
+  - Name: 
+    AudioClip: {fileID: 0}
+    Volume: 0
     Source: {fileID: 0}
     loop: 0
   - Name: 
     AudioClip: {fileID: 0}
+    Volume: 0
     Source: {fileID: 0}
     loop: 0
   - Name: 
     AudioClip: {fileID: 0}
+    Volume: 0
     Source: {fileID: 0}
     loop: 0
   - Name: 
     AudioClip: {fileID: 0}
-    Source: {fileID: 0}
-    loop: 0
-  - Name: 
-    AudioClip: {fileID: 0}
-    Source: {fileID: 0}
-    loop: 0
-  - Name: 
-    AudioClip: {fileID: 0}
+    Volume: 0
     Source: {fileID: 0}
     loop: 0
 --- !u!1 &1319171102

@@ -26,6 +26,8 @@ public class GameDirector : MonoBehaviour
     [SerializeField]
     private Transform CAMERA_TARGET;
 
+    AudioHandler audioHandler;
+
 
 
 
@@ -77,7 +79,12 @@ public class GameDirector : MonoBehaviour
     {
         CameraScript = CAMERA.GetComponent<CameraScript>();
         initGame();
-        
+        audioHandler = FindObjectOfType<AudioHandler>();
+
+        audioHandler.Play("bgm");
+
+
+
     }
    
 
@@ -309,7 +316,7 @@ public class GameDirector : MonoBehaviour
 
         GameOverMenu.SetActive(true);
         if(limitMusic>0){
-            FindObjectOfType<AudioHandler>().Play("gameOver");
+            audioHandler.Play("gameOver");
             limitMusic--;
         }
         scoreTextText.text = String.Format("Pontuacao Final: {0}", (int)(distance + score));

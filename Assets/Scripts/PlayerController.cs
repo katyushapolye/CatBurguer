@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private float jumpCooldown;
     private bool grounded;
     private int remainingJumps = 1;
+    private AudioHandler audioHandler;
 
 
     public int maxJumps = 2; // Set the maximum number of jumps here.
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour
     float xInput = 0;
     void Start()
     {
+        audioHandler = FindObjectOfType<AudioHandler>();
+
 
 
         gameDirector = FindFirstObjectByType<GameDirector>();
@@ -107,7 +110,7 @@ public class PlayerController : MonoBehaviour
         {
 
             if((grounded == true || remainingJumps>0)){
-            FindObjectOfType<AudioHandler>().Play("jump");
+            audioHandler.Play("jump");
             //jumpCooldown = 0;
             //Debug.Log("Jump");
             speedAxis.y = jumpHeight;
