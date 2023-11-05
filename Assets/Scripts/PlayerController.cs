@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,10 +35,14 @@ public class PlayerController : MonoBehaviour
 
 
 
+    private float jumpCooldown;
     private bool grounded;
+    private int remainingJumps = 1;
+
+
     public int maxJumps = 2; // Set the maximum number of jumps here.
 
-    private int remainingJumps= 1;
+
     private GameDirector gameDirector;
 
 
@@ -100,6 +105,7 @@ public class PlayerController : MonoBehaviour
         //Add ground check and double jmp
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             if((grounded == true || remainingJumps>0)){
             FindObjectOfType<AudioHandler>().Play("jump");
             //jumpCooldown = 0;
@@ -109,10 +115,12 @@ public class PlayerController : MonoBehaviour
             
             if(!grounded){
                 remainingJumps--;
+
             }
             return;
             }
             
+
 
         }
     }
@@ -142,6 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
             remainingJumps=1;
+
         }
 
     }
