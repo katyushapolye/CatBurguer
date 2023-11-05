@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+
     [SerializeField]
     [Range(0.0f, 1.0f)]
     private float gravity;
@@ -32,9 +33,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidbody2D;
 
 
-    private float jumpCooldown;
-    private bool grounded;
 
+    private bool grounded;
+    public int maxJumps = 2; // Set the maximum number of jumps here.
+
+    private int remainingJumps= 1;
     private GameDirector gameDirector;
 
 
@@ -55,7 +58,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jumpCooldown += Time.deltaTime;
+        //jumpCooldown += Time.deltaTime;
 
 
         handleMovement();
@@ -97,19 +100,19 @@ public class PlayerController : MonoBehaviour
         //Add ground check and double jmp
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (jumpCooldown > 0.5 && grounded == true)
-            {
-                jumpCooldown = 0;
-                //Debug.Log("Jump");
-                speedAxis.y = jumpHeight;
-
-
-
-                animator.SetTrigger("Jump");
-
-
-                return;
+            if((grounded == true || remainingJumps>0)){
+            FindObjectOfType<AudioHandler>().Play("jump");
+            //jumpCooldown = 0;
+            //Debug.Log("Jump");
+            speedAxis.y = jumpHeight;
+            animator.SetTrigger("Jump");
+            
+            if(!grounded){
+                remainingJumps--;
             }
+            return;
+            }
+            
 
         }
     }
@@ -138,6 +141,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
+            remainingJumps=1;
         }
 
     }

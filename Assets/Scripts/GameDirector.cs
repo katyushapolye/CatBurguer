@@ -16,6 +16,7 @@ public class GameDirector : MonoBehaviour
     float leftLimit = 10.5f;
     float downLimit = 10.0f;
     float scrollingSpeed = 2.0f;
+    int limitMusic=1;
 
     [SerializeField]
     private GameObject WORLD;
@@ -307,18 +308,22 @@ public class GameDirector : MonoBehaviour
         
 
         GameOverMenu.SetActive(true);
-        scoreTextText.text = String.Format("Pontuação Final: {0}", (int)(distance + score));
+        if(limitMusic>0){
+            FindObjectOfType<AudioHandler>().Play("gameOver");
+            limitMusic--;
+        }
+        scoreTextText.text = String.Format("Pontuacao Final: {0}", (int)(distance + score));
 
 
     }
 
     public void murderPlayer()
     {
+        
         this.isPlayerDead = true;
     }
 
     
-
 
     private void checkPlayerDeath()
     {
@@ -338,6 +343,7 @@ public class GameDirector : MonoBehaviour
 
         if (isPlayerDead)
         {
+            
             playerDeath();
 
         }

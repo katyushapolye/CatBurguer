@@ -136,6 +136,7 @@ public class SpiderEnemy : MonoBehaviour
     //Player killed the enemy
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        FindObjectOfType<AudioHandler>().Play("stomp");
         Debug.Log("Killed");
         gameDirector.increasePlayerScore(100);
         pController.bumpUp();
