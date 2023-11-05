@@ -31,6 +31,10 @@ public class AudioHandler : MonoBehaviour
     }
     public void Play(string Audioname)
     {
+        if(Menu.isAudioEnabled == false)
+        {
+            return;
+        }
         Audio s = Array.Find(Audios, Audio => Audio.Name == Audioname);
         if (s == null)
         {
@@ -51,6 +55,14 @@ public class AudioHandler : MonoBehaviour
             return;
         }
         s.Source.Stop();
+    }
+
+    public void StopAllAudio()
+    {
+        foreach(Audio a in Audios)
+        {
+            a.Source.Stop();
+        }
     }
 
 

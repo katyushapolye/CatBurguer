@@ -2,18 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
  
 {
     [SerializeField] GameObject optionsMenu;
+
+    [SerializeField] 
+    Image audioButtom;
+
+    static public bool isAudioEnabled = true;
+
+
+    
+    public Sprite enabledSprite;
+    
+    public Sprite disabledSprite;
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         Screen.SetResolution(1280, 720, false);
-        FindObjectOfType<AudioHandler>().Play("bgm");
+        if (isAudioEnabled)
+        {
+            audioButtom.sprite = enabledSprite;
+            FindObjectOfType<AudioHandler>().Play("bgm");
 
-        
+            return;
+        }
+        audioButtom.sprite = disabledSprite;
+        FindObjectOfType<AudioHandler>().StopAllAudio();
+
+
     }
 
     // Update is called once per frame
@@ -31,6 +55,23 @@ public class Menu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ToggleAudio()
+    {
+        isAudioEnabled = !isAudioEnabled;
+        if (isAudioEnabled)
+        {
+            audioButtom.sprite = enabledSprite;
+            FindObjectOfType<AudioHandler>().Play("bgm");
+
+            return;
+        }
+        audioButtom.sprite = disabledSprite;
+        FindObjectOfType<AudioHandler>().StopAllAudio();
+
+
+    }
+
 
     public void changeResolution(int resolution)
     {
