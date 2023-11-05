@@ -176,7 +176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 1403724208}
-  audioButtom: {fileID: 2011570446}
+  audioButtom: {fileID: 2011570449}
+  enabledSprite: {fileID: 21300000, guid: eb916478dd0ed42489392e9d6d1e5050, type: 3}
+  disabledSprite: {fileID: 21300000, guid: d30835e8e2ea69240b82700844ea4b12, type: 3}
 --- !u!114 &40077252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,7 +1604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1403724209
 RectTransform:
   m_ObjectHideFlags: 0
